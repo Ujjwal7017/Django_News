@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Newsify - Categories</title>
+  <link
+    rel="canonical"
+    href="https://getbootstrap.com/docs/4.5/examples/album/"
+  />
+  <link
+    href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="<sha384-EVSTQN3>azprG1Anm2QDgpJLIm9Nao0Yz1ztcQTwfspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+  <style>
+    /* Optional: Add your custom styles for spacing or borders here */
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>News Categories</h1>
+    <br/> <br/>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card shadow-sm bg-info text-white" onclick="getHeadlines('business')">
+          <div class="card-body">
+            <h5 class="card-title">Business</h5>
+            <p class="card-text">Stay updated on the latest business news and market trends.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm bg-secondary text-white" onclick="getHeadlines('sports')">
+          <div class="card-body">
+            <h5 class="card-title">Sports</h5>
+            <p class="card-text">Stay updated on the latest sports news and follow your favorite teams and athletes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm bg-success text-white" onclick="getHeadlines('technology')">
+          <div class="card-body">
+            <h5 class="card-title">Technology</h5>
+            <p class="card-text">Explore the newest innovations and advancements in the tech world.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col mt-5">
+        <div class="card shadow-sm bg-danger text-white" onclick="getHeadlines('entertainment')">
+          <div class="card-body">
+            <h5 class="card-title">Entertainment</h5>
+            <p class="card-text">Get the latest scoop on movies, music, celebrities, and more.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col mt-5">
+        <div class="card shadow-sm bg-warning text-dark" onclick="getHeadlines('science')">
+          <div class="card-body">
+            <h5 class="card-title">Science</h5>
+            <p class="card-text">Stay updated on the latest scientific discoveries and breakthroughs.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col mt-5">
+        <div class="card shadow-sm bg-primary text-white" onclick="getHeadlines('health')">
+          <div class="card-body">
+            <h5 class="card-title">Health</h5>
+            <p class="card-text">Learn about healthy living, wellness tips, and medical news.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="headlines" class="container mt-5">
+    <!-- Headlines will be displayed here -->
+  </div>
+
+  <script>
+    function getHeadlines(category) {
+      fetch(`/headlines/${category}/`)
+        .then(response => response.json())
+        .then(data => {
+          const articles = data.articles;
+          const headlinesContainer = document.getElementById('headlines');
+          headlinesContainer.innerHTML = '<h2>Top Headlines</h2>';
+          articles.forEach(article => {
+            headlinesContainer.innerHTML += `
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">${article.title}</h5>
+                  <p class="card-text">${article.description}</p>
+                  <a href="${article.url}" target="_blank" class="btn btn-primary">Read More</a>
+                </div>
+              </div>
+            `;
+          });
+        })
+        .catch(error => console.error('Error fetching headlines:', error));
+    }
+  </script>
+</body>
+</html>
