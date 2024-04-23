@@ -42,6 +42,12 @@ def get_headlines(request, category):
     data = response.json()
     return JsonResponse(data)
 
+def about(request):
+    return render(request, 'newsapp/about.html')
+
+def feedback(request):
+    return render(request, 'newsapp/feedback.html')
+
 
 
 

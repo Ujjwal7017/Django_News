@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback - Newsify</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Link to Bootstrap CSS for basic styling -->
+    <style>
+      body {
+        padding-top: 0px;
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        overflow: hidden;
+      }
+
+      header {
+        background-color: #343a40;
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .navbar-nav .nav-link {
+        color: #ffffff;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #ffffff;
+      }
+
+      main {
+        padding: 40px 0;
+      }
+
+      .display-4 {
+        font-weight: bold;
+      }
+
+      footer {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      footer a {
+        color: #ffffff;
+      }
+
+      footer a:hover {
+        color: #ffffff;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      #feedbackTextarea {
+        resize: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Newsify</a>
+          <!-- Navbar toggler button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar menu items -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+                <!-- Link to Home page -->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+                <!-- Link to About page -->
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/feedback/">Feedback</a>
+                <!-- Active link -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+      <section class="py-5 text-center">
+        <div class="container">
+          <h1 class="display-4">Feedback</h1>
+          <p class="lead">Please provide your valuable feedback below:</p>
+          <form id="feedbackForm">
+            <div class="form-group">
+              <label for="feedbackTextarea">Your Feedback</label>
+              <textarea
+                class="form-control"
+                id="feedbackTextarea"
+                rows="5"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-muted">
+      <!-- Your existing footer content remains unchanged -->
+      <div class="container">
+        <p class="mb-0">&copy; Ujjwal</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Link to jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <!-- Link to Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Link to Bootstrap JS -->
+    <script>
+      // Function to handle form submission
+      document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Display feedback submitted message
+        alert('Feedback submitted successfully!');
+        // Optionally, you can reset the form after submission
+        // this.reset();
+      });
+    </script>
+  </body>
+</html>
